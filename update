@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if [ "$EUID" -ne 0 ]
+  then echo "Please run update script as root."
+  exit
+fi
+
+
 rm -rf /etc/nixos/*
 cp -r . /etc/nixos/
 nixos-rebuild switch $@
