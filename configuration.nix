@@ -6,6 +6,8 @@
       ./hardware-configuration.nix
     ];
 
+  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
+
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = true;
@@ -24,10 +26,12 @@
 
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
+  i18n = {
+    defaultLocale = "de_DE.UTF-8";
+  };
   console = {
+    useXkbConfig = true;
     font = "Lat2-Terminus16";
-    keyMap = "de";
   };
 
   services = {
@@ -38,8 +42,7 @@
 
       # Configure keymap.
       layout = "de";
-      xkbOptions = "eurosign:e";
-
+      xkbOptions = "eurosign:e, ctrl:nocaps";
       desktopManager = {
         xterm.enable = false;
       };
@@ -47,7 +50,6 @@
       displayManager = {
         defaultSession = "none+i3";
       };
-
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [
@@ -96,12 +98,17 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
+    unzip
     wget git
     zsh
     nano emacs
     firefox qutebrowser
     alacritty
     mu offlineimap
+
+    # Development
+    python3
+    gcc clang
   ];
 
   # Don't edit.
