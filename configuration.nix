@@ -162,7 +162,7 @@
     python3 python-language-server
 
     # C/C++
-    gcc clang clang-tools cmake ninja
+    gcc clang clang-tools cmake ninja gnumake
 
     mpg123 cmus spotify playerctl
 
