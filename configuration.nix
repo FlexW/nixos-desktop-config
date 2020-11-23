@@ -144,7 +144,7 @@
     unzip
     wget git youtube-dl
     perl532Packages.FileMimeInfo
-    zsh
+    zsh fish exa bat
     gettext
     nano emacs
     firefox qutebrowser
