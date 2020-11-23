@@ -170,6 +170,8 @@
     skype signal-desktop
 
     texlive.combined.scheme-full
+
+    gimp inkscape
   ];
 
   # Don't edit.
