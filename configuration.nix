@@ -158,9 +158,11 @@
 
     hunspell hunspellDicts.de_DE hunspellDicts.en_GB-large
 
-    # Development
+    # Python
     python3 python-language-server
-    gcc clang clang-tools
+
+    # C/C++
+    gcc clang clang-tools cmake ninja
 
     mpg123 cmus spotify playerctl
 
