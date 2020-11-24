@@ -45,6 +45,7 @@
 
     locate = {
       enable = true;
+      localuser = null;
       locate = pkgs.mlocate;
       interval = "hourly";
     };
