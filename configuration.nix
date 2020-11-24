@@ -156,6 +156,7 @@
     alacritty
     mu offlineimap
     zathura
+    pavucontrol
 
     htop
 
