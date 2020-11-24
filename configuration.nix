@@ -45,6 +45,7 @@
 
     locate = {
       enable = true;
+      locate = pkgs.mlocate;
       interval = "hourly";
     };
 
@@ -127,10 +128,14 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Define a my user account.
-  users.users.felix = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  # Define my user account.
+  users = {
+    mutableUsers = true;
+
+    users.felix = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "mlocate" ];
+    };
   };
 
   programs.adb.enable = true;
