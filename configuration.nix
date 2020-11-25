@@ -11,9 +11,15 @@
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    plymouth = {
+      enable = true;
+    };
+
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
   };
 
   location = {
@@ -129,6 +135,21 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  systemd.user = {
+    services = {
+
+      "dunst" = {
+        enable = true;
+        description = "Desktop notifications";
+        wantedBy = [ "default.target" ];
+        serviceConfig.Restart = "always";
+        serviceConfig.RestartSec = 2;
+        serviceConfig.ExecStart = "${pkgs.dunst}/bin/dunst";
+      };
+
+    };
+  };
+
   # Define my user account.
   users = {
     mutableUsers = true;
@@ -158,6 +179,8 @@
     mu offlineimap
     zathura
     pavucontrol
+
+    dunst libnotify
 
     htop
 
