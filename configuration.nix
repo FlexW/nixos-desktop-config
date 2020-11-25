@@ -178,7 +178,9 @@
     alacritty
     mu offlineimap
     zathura
+
     pavucontrol
+    arandr
 
     dunst libnotify
 
