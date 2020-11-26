@@ -12,6 +12,11 @@
 
   # Use the systemd-boot EFI boot loader.
   boot = {
+
+    kernelParams = [ "quiet" ];
+
+    consoleLogLevel = 0;
+
     plymouth = {
       enable = true;
     };
@@ -74,10 +79,17 @@
         enable = true;
         extraPackages = with pkgs; [
           rofi
-          i3status
           i3lock
-          i3blocks
           yad
+
+          (i3blocks.overrideDerivation (old: {
+            src = fetchFromGitHub {
+              owner = "FlexW";
+              repo = "i3blocks";
+              rev = "ca50d9d30edb60f3ce19271872104a9f2d5ac35e";
+              sha256 = "1vgw2dji4zpf81l0gzy5crkzrnfsmskk5pss4gjby3svlipqgdc8";
+            };
+          }))
         ];
       };
 
