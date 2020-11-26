@@ -159,6 +159,15 @@
         serviceConfig.ExecStart = "${pkgs.dunst}/bin/dunst";
       };
 
+      "nextcloud" = {
+        enable = true;
+        description = "Nextcloud client";
+        wantedBy = [ "default.target" ];
+        serviceConfig.Restart = "always";
+        serviceConfig.RestartSec = 2;
+        serviceConfig.ExecStart = "${pkgs.nextcloud-client}/bin/nextcloud";
+      };
+
     };
   };
 
