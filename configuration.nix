@@ -189,8 +189,12 @@
   };
 
   programs.adb.enable = true;
-  # required :-( for adb
-  nixpkgs.config.android_sdk.accept_license = true;
+
+  nixpkgs.config = {
+    android_sdk.accept_license = true;
+
+    zathura.useMupdf = true;
+  };
 
 
   # System packages
@@ -223,6 +227,9 @@
 
     # C/C++
     gcc clang clang-tools cmake ninja gnumake
+
+    # Web dev
+    nodePackages.prettier
 
     mpg123 cmus spotify playerctl
 
