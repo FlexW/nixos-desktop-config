@@ -192,7 +192,7 @@
     unzip
     wget git youtube-dl
     perl532Packages.FileMimeInfo
-    zsh fish exa bat
+    zsh fish direnv exa bat
     gettext
     nano emacs
     firefox qutebrowser
@@ -212,7 +212,7 @@
     hunspell hunspellDicts.de_DE hunspellDicts.en_GB-large
 
     # Python
-    python3 python-language-server
+    python3
 
     # C/C++
     gcc clang clang-tools cmake ninja gnumake
