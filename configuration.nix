@@ -86,7 +86,7 @@
         enable = true;
         extraPackages = with pkgs; [
           rofi
-          i3lock
+          i3lock-fancy-rapid
           yad
 
           (i3blocks.overrideDerivation (old: {
@@ -230,6 +230,8 @@
 
     # Web dev
     nodePackages.prettier
+    nodePackages.typescript
+    nodePackages.typescript-language-server
 
     mpg123 cmus spotify playerctl
 
