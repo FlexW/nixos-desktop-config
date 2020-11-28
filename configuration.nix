@@ -8,7 +8,14 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
+  # links /libexec from derivations to /run/current-system/sw
+  environment.pathsToLink = [ "/libexec" "/share/nix-direnv" ];
+
+  # nix options for derivations to persist garbage collection
+  nix.extraOptions = ''
+    keep-outputs = true
+    keep-derivations = true
+  '';
 
   # Use the systemd-boot EFI boot loader.
   boot = {
@@ -192,7 +199,7 @@
     unzip
     wget git youtube-dl
     perl532Packages.FileMimeInfo
-    zsh fish direnv exa bat
+    zsh fish direnv nix-direnv exa bat
     gettext
     nano emacs
     firefox qutebrowser
