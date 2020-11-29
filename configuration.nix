@@ -1,5 +1,12 @@
 { config, pkgs, ... }:
-
+let
+  cursor = {
+    name = "Vanilla-DMZ";
+    package = pkgs.vanilla-dmz;
+    size = 128;
+  };
+  dpi = 100;
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -81,6 +88,17 @@
 
       displayManager = {
         defaultSession = "none+i3";
+
+        # HighDPI and cursor
+        sessionCommands = ''
+          ${pkgs.xorg.xrdb}/bin/xrdb -merge <<EOF
+          Xft.dpi: ${toString dpi}
+          Xcursor.theme: ${cursor.name}
+          # Xcursor.size: ${toString cursor.size}
+          EOF
+          ${pkgs.xorg.xsetroot}/bin/xsetroot -xcf ${cursor.package}/share/icons/${cursor.name}/cursors/left_ptr ${toString cursor.size}
+
+        '';
       };
       windowManager.i3 = {
         enable = true;
@@ -229,6 +247,8 @@
     gcc clang clang-tools cmake ninja gnumake
 
     # Web dev
+    nodejs
+    nodePackages.npm
     nodePackages.prettier
     nodePackages.typescript
     nodePackages.typescript-language-server
@@ -241,6 +261,8 @@
     texlive.combined.scheme-full
 
     gimp inkscape
+
+    vanilla-dmz
   ];
 
   # Don't edit.
