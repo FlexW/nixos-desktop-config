@@ -248,6 +248,7 @@ in
     gcc clang clang-tools cmake ninja gnumake
 
     # Web dev
+    hugo
     nodejs
     nodePackages.npm
     nodePackages.prettier
