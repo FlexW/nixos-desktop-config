@@ -219,6 +219,7 @@ in
   environment.systemPackages = with pkgs; [
     man-pages
     unzip
+    calc
     wget git youtube-dl
     perl532Packages.FileMimeInfo
     zsh fish direnv nix-direnv exa bat
