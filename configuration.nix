@@ -255,7 +255,7 @@ in
     nodePackages.typescript
     nodePackages.typescript-language-server
 
-    mpg123 cmus spotify playerctl
+    mpg123 mpg321 vlc cmus spotify playerctl
 
     nextcloud-client
     skype signal-desktop
