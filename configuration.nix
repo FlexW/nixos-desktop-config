@@ -257,6 +257,8 @@ in
 
     mpg123 mpg321 vlc cmus spotify playerctl
 
+    exiftool
+
     nextcloud-client
     skype signal-desktop
 
