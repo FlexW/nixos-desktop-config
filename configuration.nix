@@ -227,7 +227,9 @@ in
   # System packages
   environment.systemPackages = with pkgs; [
     man-pages
-    ntfs3g
+
+    ntfs3g jmtpfs
+
     unzip
     calc
     wget git youtube-dl
