@@ -227,6 +227,7 @@ in
   # System packages
   environment.systemPackages = with pkgs; [
     man-pages
+    ntfs3g
     unzip
     calc
     wget git youtube-dl
@@ -238,6 +239,8 @@ in
     alacritty
     mu offlineimap
     zathura
+
+    pass
 
     pavucontrol
     arandr
