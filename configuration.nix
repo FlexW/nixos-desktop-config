@@ -237,7 +237,7 @@ in
 
     htop
 
-    scrot feh viewnior
+    scrot feh viewnior imagemagick
 
     hunspell hunspellDicts.de_DE hunspellDicts.en_GB-large
 
