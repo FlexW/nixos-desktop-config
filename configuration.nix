@@ -175,6 +175,15 @@ in
   systemd.user = {
     services = {
 
+      "copyq" = {
+        enable = true;
+        description = "Clipboard manager";
+        wantedBy = [ "default.target" ];
+        serviceConfig.Restart = "always";
+        serviceConfig.RestartSec = 2;
+        serviceConfig.ExecStart = "${pkgs.copyq}/bin/copyq";
+      };
+
       "dunst" = {
         enable = true;
         description = "Desktop notifications";
@@ -234,6 +243,8 @@ in
     arandr
 
     dunst libnotify
+
+    copyq
 
     htop
 
