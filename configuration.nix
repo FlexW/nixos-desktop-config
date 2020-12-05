@@ -237,7 +237,7 @@ in
     zsh fish direnv nix-direnv exa bat
     gettext
     nano emacs
-    firefox qutebrowser
+    firefox qutebrowser tor-browser-bundle-bin
     alacritty
     mu offlineimap
     zathura
@@ -258,7 +258,7 @@ in
     hunspell hunspellDicts.de_DE hunspellDicts.en_GB-large
 
     # Python
-    python3
+    python3 python27
 
     # C/C++
     gcc clang clang-tools cmake ninja gnumake
@@ -284,6 +284,10 @@ in
 
     vanilla-dmz
   ];
+
+  security.pam.services.login.gnupg = {
+    enable = true;
+  };
 
   # Don't edit.
   system.stateVersion = "20.09";
