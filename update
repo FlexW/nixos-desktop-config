@@ -8,4 +8,4 @@ fi
 
 rm -rf /etc/nixos/*
 cp -r . /etc/nixos/
-nixos-rebuild switch $@
+nixos-rebuild --upgrade switch $@
